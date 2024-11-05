@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public int maxHealth = 5;
-    public float timeInvincible = 3;
+    public float timeInvincible = 2;
 
     bool isInvincible;
     float invincibleTimer;
-     public int health { get { return currentHealth; } }
+    public int health { get { return currentHealth; } }
     int currentHealth;
     Rigidbody2D rigidbody2d;
     float horizontal;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        
+
 
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
@@ -33,10 +33,10 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        if( isInvincible )
+        if (isInvincible)
 
         {
-            invincibleTimer = Time.deltaTime;
+            invincibleTimer -= Time.deltaTime;
             if (invincibleTimer < 0)
             { isInvincible = false; }
         }
@@ -50,20 +50,20 @@ public class PlayerController : MonoBehaviour
 
         rigidbody2d.MovePosition(position);
     }
-        public void ChangeHealth(int amount)
-        {
-        if(amount < 0 )
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
         {
             return;
         }
         isInvincible = true;
         invincibleTimer = timeInvincible;
-        
 
-         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-            Debug.Log(currentHealth + "/" + maxHealth);
 
-        }
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
 
-    
+    }
+
+
 }
