@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     float horizontal;
     float vertical;
 
+    Animator animator;
+    Vector2 lookDirection
+
 
     // Start is called b efore the first frame update
     void Start()
@@ -54,15 +57,17 @@ public class PlayerController : MonoBehaviour
     {
         if (amount < 0)
         {
-            return;
+            if (isInvincible)
+            {
+                return;
+            }
+
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+
         }
-        isInvincible = true;
-        invincibleTimer = timeInvincible;
-
-
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
-
     }
 
 
