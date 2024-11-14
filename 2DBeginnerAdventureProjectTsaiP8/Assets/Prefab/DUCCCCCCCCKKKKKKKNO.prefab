@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8798167428253072921}
   - component: {fileID: 3050289286226155683}
   - component: {fileID: 1767565667202104513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DUCCCCCCCCKKKKKKKNO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,6 +103,8 @@ MonoBehaviour:
   speed: 1
   maxHealth: 5
   timeInvincible: 3
+  projectilePrefab: {fileID: 3152019683132040979, guid: d3d353556769d5545a1a22ac99823600,
+    type: 3}
 --- !u!50 &8798167428253072921
 Rigidbody2D:
   serializedVersion: 4
@@ -162,7 +164,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011732832, y: 0.014534473}
+  m_Offset: {x: 0.011732817, y: -0.4830418}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -173,7 +175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.61095536, y: 2.2794814}
+  m_Size: {x: 0.61095536, y: 1.2843288}
   m_EdgeRadius: 0
 --- !u!95 &1767565667202104513
 Animator:
