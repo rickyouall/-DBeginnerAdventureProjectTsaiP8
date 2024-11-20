@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float speed = 3.0f;
     public int maxHealth = 5;
     public float timeInvincible = 2;
 
@@ -58,13 +58,27 @@ public class PlayerController : MonoBehaviour
         {
             Launch();
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                NonePlayerCharacter character = hit.collider.GetComponent<NonePlayerCharacter>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+
+                }
+
+            }
+        }
         }
     void FixedUpdate()
     {
 
         Vector2 position = rigidbody2d.position;
-        position.x = position.x + speed + 0.6f * horizontal;
-        position.y = position.y + speed + 0.6f * vertical;
+        position.x = position.x + speed * horizontal * Time.deltaTime;
+        position.y = position.y + speed * vertical * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
     }
