@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthCollectable : MonoBehaviour
 {
+    public AudioClip collectedClip;
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Object that enter the trigger is :" + other);
@@ -14,6 +15,8 @@ public class HealthCollectable : MonoBehaviour
             {
                 controller.ChangeHealth(1);
                 Destroy(gameObject);
+
+                controller.PlaySound(collectedClip);
             }
         }
 
